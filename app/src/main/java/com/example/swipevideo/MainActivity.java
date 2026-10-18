@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         final ViewPager2 videoViewPager = findViewById(R.id.videoViewPager);
 
         List<VideoItem> videoItemsList = new ArrayList<>();
-        VideoItem videoCelebration = new VideoItem();
-        videoCelebration.videoURL = "X";
-        videoCelebration.videoTitle = "Celebration";
-        videoCelebration.videoDescription = "Celebrations who you are in the deepest heart";
+        VideoItem rioluVideo = new VideoItem();
+        rioluVideo.videoURL = "https://github.com/LucarioWolf/CS460-Lab2/raw/refs/heads/main/Videos/RioluPets.mp4";
+        rioluVideo.videoTitle = "Pets for Riolu";
+        rioluVideo.videoDescription = "Pets for the best Pokemon known as Riolu :3";
 
-        videoItemsList.add(videoCelebration);
+        videoItemsList.add(rioluVideo);
 
         videoViewPager.setAdapter(new VideoAdapter(videoItemsList));
     }
