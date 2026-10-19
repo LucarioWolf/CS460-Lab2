@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SwipeVideo</string>
+    <string name="pause_image">Pause Image</string>
 </resources>

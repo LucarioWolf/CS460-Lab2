@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         videoItemsList.add(lullabyVideo);
 
 
-        //Fourth Video "The Lucario Line
+        //Fourth Video "The Lucario Line"
         VideoItem lucarioVideo = new VideoItem();
         lucarioVideo.videoURL = "https://github.com/LucarioWolf/CS460-Lab2/raw/refs/heads/main/Videos/LucarioLine.mp4";
         lucarioVideo.videoTitle = "The Lucario Line";

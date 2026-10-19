@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -59,6 +60,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         VideoView videoView;
         ProgressBar progressBar;
 
+        ImageView imageView;
+
         /**
          * The constructor that assigns the XML elements using the IDs
          * @param itemView The view where we find the xml elements
@@ -70,6 +73,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             textVideoDescription = itemView.findViewById(R.id.textViewDescription);
             progressBar = itemView.findViewById(R.id.videoProgessBar);
             textVideoID = itemView.findViewById(R.id.textID);
+
+            imageView = itemView.findViewById(R.id.pauseImage);
+            imageView.setImageResource(R.drawable.pause);
+
         }
 
         /**
@@ -84,6 +91,20 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             videoView.setVideoPath(videoItem.videoURL);
             textVideoID.setText(videoItem.videoId);
 
+            //Whenever the video is clicked on, the video will pause
+            videoView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (videoView.isPlaying()) {
+                        videoView.pause();
+                        imageView.setVisibility(View.VISIBLE);
+                    } else {
+                        videoView.start();
+                        imageView.setVisibility(View.GONE);
+                    }
+                }
+            });
+
             //When the video is loaded, begin to prepare the video with the onPrepared function
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 /**
@@ -95,6 +116,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
                     //Remove the progress bar and begin playing the video
                     progressBar.setVisibility(View.GONE);
+                    imageView.setVisibility(View.GONE);
                     mp.start();
 
                     //Ratios varibles to determine the scale of the videos
@@ -106,8 +128,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
                     if(scale >= 1f) {
                         videoView.setScaleX(scale);
                     } else { //If video is smaller, increase the height of the video
-                        videoView.setScaleY(1.5f / scale);
+                        videoView.setScaleY(1f / scale);
                     }
+                }
+
+                public void pauseVideo(MediaPlayer mp){
+
                 }
             });
 
