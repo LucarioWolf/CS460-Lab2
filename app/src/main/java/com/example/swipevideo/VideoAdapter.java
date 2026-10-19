@@ -93,6 +93,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
             //Whenever the video is clicked on, the video will pause
             videoView.setOnClickListener(new View.OnClickListener() {
+                /**
+                 * Whenever the video view is clicked, pause the video
+                 * @param v The view of the application
+                 */
                 @Override
                 public void onClick(View v) {
                     if (videoView.isPlaying()) {
@@ -132,9 +136,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
                     }
                 }
 
-                public void pauseVideo(MediaPlayer mp){
-
-                }
             });
 
             //When the video ends, restart video

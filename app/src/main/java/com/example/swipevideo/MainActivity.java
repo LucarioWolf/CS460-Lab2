@@ -14,6 +14,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * When the application is first loaded, create the view
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +68,15 @@ public class MainActivity extends AppCompatActivity {
         lucarioVideo.videoId = "ID: 447448";
         videoItemsList.add(lucarioVideo);
 
+        //Fifth Video "Avatar Korra"
+        VideoItem korraVideo = new VideoItem();
+        korraVideo.videoURL = "https://github.com/LucarioWolf/CS460-Lab2/raw/refs/heads/main/Videos/AvatarKorra.mp4";
+        korraVideo.videoTitle = "Avatar Korra";
+        korraVideo.videoDescription = "Avatar Korra, the avatar that restore the air nation.";
+        korraVideo.videoId = "ID: 041412";
+        videoItemsList.add(korraVideo);
 
+        //Set the video adapter to load the videos
         videoViewPager.setAdapter(new VideoAdapter(videoItemsList));
     }
 }
